@@ -2,9 +2,17 @@
 # -*- coding: utf-8 -*-
 
 import cgi, sys
-from zelian import create_worksheet
 #import cgitb
 #cgitb.enable()
+
+try:
+    from local_config import *
+except ImportError:
+    pass
+
+from zilian import create_worksheet
+from reportlab.lib.units import inch, mm
+from reportlab.lib.colors import CMYKColor
 
 def main():
     # collect CGI input from form
@@ -44,10 +52,10 @@ def main():
     style['lines'] = int((style['pageheight'] - style['topmargin'] - style['bottommargin']) / (style['sqheight'] + style['linesep']))
     
     # build the sheet and return
-    print "Content-type: application/pdf"
-    print 'Content-disposition: inline; filename="worksheet.pdf"'
-    print
-    create_worksheet(sys.stdout)
+    out = sys.stdout
+    out.write("Content-type: application/pdf\n")
+    out.write('Content-disposition: inline; filename="worksheetx.pdf"\n\n')
+    create_worksheet(out, style)
 
 
 main()

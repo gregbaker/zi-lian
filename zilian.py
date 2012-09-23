@@ -67,7 +67,7 @@ def draw_sheet(c, style):
         y -= style['sqheight'] + style['linesep']
 
 
-def create_worksheet(stream):
+def create_worksheet(stream, style):
     """
     Output a PDF worksheet to the given stream (or filename).
     """
