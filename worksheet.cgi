@@ -34,7 +34,7 @@ def main():
             'outlinewidth': 0.5,
             'guidestyle': guidestyle,
             'guidecolor': CMYKColor(0,0,0,0.2),
-            'guidewidth': 0.3,
+            'guidewidth': 0.5,
             'guidedash': [2, 2],
             'topmargin': 0.75*inch,
             'leftmargin': 0.75*inch,
